@@ -23,6 +23,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: Color(0xffECBA93),
         fontFamily: "Nunito",
+        iconTheme: IconThemeData(
+          color: Colors.transparent,
+        ),
       ),
       home: Login(),
     );
@@ -97,6 +100,7 @@ class _LoginState extends State<Login> {
         backgroundColor: Color(0xff6F00BB),
         toolbarHeight:
             MediaQuery.of(context).size.height * 0.1, // Largura responsiva
+        automaticallyImplyLeading: false,
       ),
       body: Center(
         child: Column(
@@ -134,22 +138,26 @@ class _LoginState extends State<Login> {
                         height: MediaQuery.of(context).size.height * 0.001,
                       ),
                       // Input do campo nome
-                      TextField(
-                        controller: nome,
-                        decoration: InputDecoration(
-                          hintText: "Digite seu nome...",
-                          hintStyle: TextStyle(
-                            color: Color(0xffA1A1A1),
-                            fontSize: MediaQuery.of(context).size.height * 0.02,
+                      SizedBox(
+                        width: 350,
+                        child: TextField(
+                          controller: nome,
+                          decoration: InputDecoration(
+                            hintText: "Digite seu nome...",
+                            hintStyle: TextStyle(
+                              color: Color(0xffA1A1A1),
+                              fontSize: MediaQuery.of(context).size.height * 0.02,
+                            ),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15),
+                              borderSide: BorderSide.none,
+                            ),
+                            filled: true,
+                            fillColor: Colors.white,
                           ),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15),
+                          style: TextStyle(
+                            fontSize: MediaQuery.of(context).size.height * 0.016,
                           ),
-                          filled: true,
-                          fillColor: Colors.white,
-                        ),
-                        style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height * 0.016,
                         ),
                       ),
                     ],
@@ -163,35 +171,40 @@ class _LoginState extends State<Login> {
                       Text(
                         "Senha",
                         style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height * 0.015,
+                          fontSize: MediaQuery.of(context).size.height * 0.02,
                         ),
                       ),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.001,
                       ),
                       // Input do campo senha
-                      TextField(
-                        controller: senha,
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          hintText: "Digite sua senha...",
-                          hintStyle: TextStyle(
-                            color: Color(0xffA1A1A1),
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.018,
+                      SizedBox(
+                        width: 350,
+                        child: TextField(
+                          controller: senha,
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            hintText: "Digite sua senha...",
+                            hintStyle: TextStyle(
+                              color: Color(0xffA1A1A1),
+                              fontSize:
+                                  MediaQuery.of(context).size.height * 0.018,
+                            ),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15),
+                              borderSide: BorderSide.none,
+                            ),
+                            filled: true,
+                            fillColor: Colors.white,
                           ),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
+                          style: TextStyle(
+                            fontSize: MediaQuery.of(context).size.height * 0.016,
                           ),
-                          filled: true,
-                          fillColor: Colors.white,
-                        ),
-                        style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height * 0.016,
                         ),
                       ),
                     ],
                   ),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.05),
                   erro.isNotEmpty ?
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.05, 
@@ -204,7 +217,6 @@ class _LoginState extends State<Login> {
                       ),
                     ) :
                     SizedBox.shrink(), // Não ocupa espaço
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.05),
                   // Botão de logar
                   ElevatedButton(
                     onPressed: postLogin,

@@ -1,8 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:labubucas/barraNavegacaoInferior.dart';
 import 'package:labubucas/firebase_options.dart';
-import 'package:labubucas/home.dart';
+
 void main() async {
   // Configurações do Firebase
   WidgetsFlutterBinding.ensureInitialized();
@@ -81,7 +82,7 @@ class _LoginState extends State<Login> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => Home(),
+          builder: (context) => BarraNavegacaoInferior(),
         ),
       );
     } catch (error) {

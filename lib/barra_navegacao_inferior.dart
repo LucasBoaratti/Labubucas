@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:labubucas/home.dart';
+import 'package:labubucas/labubus.dart';
 import 'package:labubucas/produtos.dart';
 import 'package:labubucas/carrinho.dart';
 
@@ -22,14 +23,25 @@ class _BarraNavegacaoInferiorState extends State<BarraNavegacaoInferior> {
     });
   }
 
-  // Lista que contém todas as telas do site
-  List<Widget> telas = [Home(), Carrinho(), Produtos()];
+  // Função para adicionar ao carrinho
+  void adicionarCarrinho(Labubus produto) {
+    setState(() {
+      carrinhoProdutos.add(produto);
+    });
+  }
+
+  List<Labubus> carrinhoProdutos = [];
 
   @override
   Widget build(BuildContext context) {
+    final List<Widget> telas = [
+      Home(onProdutos: () => mudarTela(2)),
+      Carrinho(produtos: carrinhoProdutos),
+      Produtos(),
+    ];
     // Renderizando a barra de navegação inferior nas telas
     return Scaffold(
-      body: telas[telaAtual],
+      body: IndexedStack(index: telaAtual, children: telas),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: telaAtual,
         onTap: mudarTela,

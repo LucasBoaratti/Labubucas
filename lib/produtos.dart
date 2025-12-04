@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:labubucas/labubus.dart';
+import 'package:labubucas/produto_individual.dart';
 
 class Produtos extends StatefulWidget {
   const Produtos({super.key});
@@ -73,49 +74,62 @@ class _ProdutosState extends State<Produtos> {
               childAspectRatio: 0.7,
               padding: EdgeInsets.all(16),
               children: labubus.map((produto) {
-                return Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Color(0xff6F00BB),
-                  ),
-                  padding: EdgeInsets.all(12),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Image.network(
-                        produto.imagem ?? "",
-                        fit: BoxFit.cover,
-                        width: MediaQuery.of(context).size.width * 0.2,
-                        height: MediaQuery.of(context).size.height * 0.2,
+                return InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProdutoIndividual(produto: produto),
                       ),
-                      Text(
-                        produto.nome ?? "",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height * 0.018,
-                          color: Colors.white,
+                    );
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Color(0xff6F00BB),
+                    ),
+                    padding: EdgeInsets.all(12),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Image.network(
+                          produto.imagem ?? "",
+                          fit: BoxFit.cover,
+                          width: MediaQuery.of(context).size.width * 0.2,
+                          height: MediaQuery.of(context).size.height * 0.2,
                         ),
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        "R\$ ${produto.precoAntigo?.toStringAsFixed(2) ?? ""}",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height * 0.016,
-                          color: Colors.white,
-                          decoration: TextDecoration.lineThrough,
+                        Text(
+                          produto.nome ?? "",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize:
+                                MediaQuery.of(context).size.height * 0.018,
+                            color: Colors.white,
+                          ),
                         ),
-                      ),
-                      Text(
-                        "R\$ ${produto.preco?.toStringAsFixed(2) ?? ""}",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height * 0.018,
-                          color: Colors.white,
+                        SizedBox(height: 10),
+                        Text(
+                          "R\$ ${produto.precoAntigo?.toStringAsFixed(2) ?? ""}",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontSize:
+                                MediaQuery.of(context).size.height * 0.016,
+                            color: Colors.white,
+                            decoration: TextDecoration.lineThrough,
+                          ),
                         ),
-                      ),
-                    ],
+                        Text(
+                          "R\$ ${produto.preco?.toStringAsFixed(2) ?? ""}",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontSize:
+                                MediaQuery.of(context).size.height * 0.018,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 );
               }).toList(),

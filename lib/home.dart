@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:labubucas/produtos.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  final VoidCallback onProdutos;
+
+  const Home({super.key, required this.onProdutos});
 
   @override
   State<Home> createState() => _HomeState();
@@ -44,14 +45,7 @@ class _HomeState extends State<Home> {
                           height: MediaQuery.of(context).size.height * 0.01,
                         ),
                         InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Produtos(),
-                              ),
-                            );
-                          },
+                          onTap: widget.onProdutos,
                           child: Stack(
                             alignment: Alignment.center,
                             children: [
@@ -88,14 +82,7 @@ class _HomeState extends State<Home> {
                           width: MediaQuery.of(context).size.width * 0.05,
                         ),
                         InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Produtos(),
-                              ),
-                            );
-                          },
+                          onTap: widget.onProdutos,
                           child: Stack(
                             alignment: Alignment.center,
                             children: [
@@ -137,14 +124,7 @@ class _HomeState extends State<Home> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Produtos(),
-                              ),
-                            );
-                          },
+                          onTap: widget.onProdutos,
                           child: Stack(
                             alignment: Alignment.center,
                             children: [
@@ -183,14 +163,7 @@ class _HomeState extends State<Home> {
                           width: MediaQuery.of(context).size.width * 0.05,
                         ),
                         InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Produtos(),
-                              ),
-                            );
-                          },
+                          onTap: widget.onProdutos,
                           child: Stack(
                             alignment: Alignment.center,
                             children: [
@@ -255,14 +228,7 @@ class _HomeState extends State<Home> {
                         Column(
                           children: [
                             InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => Produtos(),
-                                  ),
-                                );
-                              },
+                              onTap: widget.onProdutos,
                               child: Stack(
                                 alignment: Alignment.center,
                                 children: [
@@ -337,14 +303,7 @@ class _HomeState extends State<Home> {
                         Column(
                           children: [
                             InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => Produtos(),
-                                  ),
-                                );
-                              },
+                              onTap: widget.onProdutos,
                               child: Stack(
                                 alignment: Alignment.center,
                                 children: [
@@ -423,14 +382,7 @@ class _HomeState extends State<Home> {
                       Column(
                         children: [
                           InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => Produtos(),
-                                ),
-                              );
-                            },
+                            onTap: widget.onProdutos,
                             child: Stack(
                               alignment: Alignment.center,
                               children: [
@@ -503,14 +455,7 @@ class _HomeState extends State<Home> {
                       Column(
                         children: [
                           InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => Produtos(),
-                                ),
-                              );
-                            },
+                            onTap: widget.onProdutos,
                             child: Stack(
                               alignment: Alignment.center,
                               children: [

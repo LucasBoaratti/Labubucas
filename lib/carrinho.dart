@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:labubucas/labubus.dart';
 
 class Carrinho extends StatefulWidget {
-  const Carrinho({super.key});
+  // Chamando a classe onde as informações dos Labubus estão
+  final List<Labubus> produtos;
+
+  const Carrinho({super.key, required this.produtos});
 
   @override
   State<Carrinho> createState() => _CarrinhoState();

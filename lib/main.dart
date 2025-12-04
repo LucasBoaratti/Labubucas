@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:labubucas/barraNavegacaoInferior.dart';
+import 'package:labubucas/barra_navegacao_inferior.dart';
 import 'package:labubucas/firebase_options.dart';
 
 void main() async {

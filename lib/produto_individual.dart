@@ -8,7 +8,7 @@ class ProdutoIndividual extends StatelessWidget {
   final Labubus produto;
   final Function(Labubus) onAdicionar;
 
-  const ProdutoIndividual({super.key, required this.produto});
+  const ProdutoIndividual({super.key, required this.produto, required this.onAdicionar});
 
   @override
   Widget build(BuildContext context) {

@@ -15,6 +15,7 @@ class BarraNavegacaoInferior extends StatefulWidget {
 class _BarraNavegacaoInferiorState extends State<BarraNavegacaoInferior> {
   // Variável que indica a posição da tela
   int telaAtual = 0;
+  List<Labubus> carrinhoProdutos = [];
 
   // Função para mudar o valor de acordo com a tela
   void mudarTela(int index) {
@@ -23,21 +24,19 @@ class _BarraNavegacaoInferiorState extends State<BarraNavegacaoInferior> {
     });
   }
 
-  // Função para adicionar ao carrinho
+  // Função para adicionar os produtos no carrinho
   void adicionarCarrinho(Labubus produto) {
     setState(() {
       carrinhoProdutos.add(produto);
     });
   }
 
-  List<Labubus> carrinhoProdutos = [];
-
   @override
   Widget build(BuildContext context) {
     final List<Widget> telas = [
       Home(onProdutos: () => mudarTela(2)),
       Carrinho(produtos: carrinhoProdutos),
-      Produtos(),
+      Produtos(onAdicionar: adicionarCarrinho),
     ];
     // Renderizando a barra de navegação inferior nas telas
     return Scaffold(

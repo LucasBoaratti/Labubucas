@@ -4,7 +4,9 @@ import 'package:labubucas/labubus.dart';
 import 'package:labubucas/produto_individual.dart';
 
 class Produtos extends StatefulWidget {
-  const Produtos({super.key});
+  final Function(Labubus) onAdicionar;
+
+  const Produtos({super.key, required this.onAdicionar});
 
   @override
   State<Produtos> createState() => _ProdutosState();
@@ -79,7 +81,7 @@ class _ProdutosState extends State<Produtos> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ProdutoIndividual(produto: produto),
+                        builder: (context) => ProdutoIndividual(produto: produto, onAdicionar: widget.onAdicionar),
                       ),
                     );
                   },

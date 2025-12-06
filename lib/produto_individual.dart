@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:labubucas/carrinho.dart';
 import 'package:labubucas/labubus.dart';
 
 // Classe que recebe os detalhes do produtos para ser mandado para a próxima tela
@@ -44,6 +43,7 @@ class ProdutoIndividual extends StatelessWidget {
             style: TextStyle(
               fontSize: MediaQuery.of(context).size.height * 0.025,
               fontWeight: FontWeight.bold,
+              fontFamily: "Fredoka",
             ),
           ),
           SizedBox(height: MediaQuery.of(context).size.height * 0.02),
